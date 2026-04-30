@@ -1,5 +1,5 @@
 #parent class
-class lculator:
+class BaseCalculator:
     def get_numbers(self):
         while True:
             try:
@@ -9,7 +9,7 @@ class lculator:
             except ValueError:
                 print("Invalid input. Please Enter numbers only.")
 
-class Operation(lculator):
+class MathOperations(BaseCalculator):
     def addition(self, number1, number2):
         return number1 + number2
     def subtraction(self, number1, number2):
