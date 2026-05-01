@@ -1,4 +1,9 @@
 #parent class
+from random import choice
+
+from python_practice_programs.isupper_alternative import result
+
+
 class BaseCalculator:
     def get_numbers(self):
         while True:
@@ -20,7 +25,7 @@ class MathOperations(BaseCalculator):
         try:
             return number1 / number2
         except ZeroDivisionError:
-        print("Error: Can't divide by zero")
+            print("Error: Can't divide by zero")
 
 #another class for the main loop to display the menu
 class CalculatorInterface:
@@ -40,5 +45,29 @@ class CalculatorInterface:
             if choice not in ["1", "2", "3", "4"]:
                 print("Invalid input. Please Enter only one of the following values (1-4):")
                 continue
-#di muna tapos xori po
+
+            number1, number2 = self.operations.get_numbers()
+            if number1 is None or number2 is None:
+                continue
+#functions
+            if choice == "1":
+                print(self.operations.addition(number1, number2))
+            elif choice == "2":
+                print(self.operations.subtraction(number1, number2))
+            elif choice == "3":
+                print(self.operations.multiplication(number1, number2))
+            elif choice == "4":
+                print(self.operations.division(number1, number2))
+
+            if result is not None:
+                print("The result is:", result)
+
+            again = input("\nDo you want to continue? (y/n): ")
+            if again == "yes":
+                print("Thank you for using the calculator. Goodbye! xoxo")
+                break
+#run
+if __name__ == "__main__":
+    calculator = CalculatorInterface()
+    calculator.run()
 #will learn better methods for better main display
