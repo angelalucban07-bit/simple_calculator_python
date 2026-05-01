@@ -60,7 +60,7 @@ class CalculatorInterface:
                 print("The result is:", result)
 
             again = input("\nDo you want to continue? (y/n): ")
-            if again == "yes":
+            if again == "n":
                 print("Thank you for using the calculator. Goodbye! xoxo")
                 break
 #run
