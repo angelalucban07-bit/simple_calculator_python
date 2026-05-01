@@ -1,8 +1,4 @@
 #parent class
-from random import choice
-
-from python_practice_programs.isupper_alternative import result
-
 
 class BaseCalculator:
     def get_numbers(self):
@@ -49,6 +45,7 @@ class CalculatorInterface:
             number1, number2 = self.operations.get_numbers()
             if number1 is None or number2 is None:
                 continue
+            result = None
 #functions
             if choice == "1":
                 print(self.operations.addition(number1, number2))
