@@ -1,16 +1,34 @@
-#parent class
+#will experiment on functions a bit i want the calculator to store values and i think its still not proper oop coded.
+#code isnt running for now, made first parent class a comment for awhile. will fix this after some time.
+#lost internet connection for days now, need resources for basis.
 
+# class BaseCalculator:
+#     def get_numbers(self):
+#         while True:
+#             try:
+#                 number1 = int(input("Enter a number: "))
+#                 number2 = int(input("Enter another number: "))
+#                 return number1, number2
+#             except ValueError:
+#                 print("Invalid input. Please Enter numbers only.")
+#child class
 class BaseCalculator:
-    def get_numbers(self):
+    def __init__(self):
+        self.value = 0
+
+    def calculate(self, operation_obj, new_value):
+        self.value = operation_obj(new_value) #this uses last result
+        return self.value
+
+    def run(self):
         while True:
             try:
-                number1 = int(input("Enter a number: "))
-                number2 = int(input("Enter another number: "))
-                return number1, number2
+                new_value = int(input("Enter the new value: "))
+                result = self.MathOperation.calculate(MathOperation, new_value)
+                print(f"Result: {result}")
             except ValueError:
-                print("Invalid input. Please Enter numbers only.")
-#child class
-class MathOperations(BaseCalculator):
+                print("Invalid input")
+class MathOperation(BaseCalculator):
     def addition(self, number1, number2):
         return number1 + number2
     def subtraction(self, number1, number2):
@@ -42,7 +60,7 @@ class CalculatorInterface:
                 print("Invalid input. Please Enter only one of the following values (1-4):")
                 continue
 
-            number1, number2 = self.operations.get_numbers()
+            number1, number2 = self.operations.calculate()
             if number1 is None or number2 is None:
                 continue
             result = None
