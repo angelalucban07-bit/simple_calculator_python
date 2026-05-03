@@ -1,4 +1,7 @@
-#trying new functions for storing the value so will have to do a lot more revisions
+#trying new functions for storing the value so will have to do a lot more revisions. did not include history
+#so deleted the def history because it was unnecessary
+from python_practice_programs.isupper_alternative import result
+
 
 # class BaseCalculator:
 #     def get_numbers(self):
@@ -12,31 +15,27 @@
 #child class
 class BaseCalculator:
     def __init__(self):
-        self.value = 0
+        self.value = None
         self.memory = []
 
     def store_value(self, result, operation):
         self.value = result #this uses last result
         self.history.append(operation)
 
-    def show_history(self):
-        if not self.history():
-            print("No history saved yet.")
-        else:
-            print("\n==History==")
-            for item in self.history:
-                print(item)
-
 class MathOperation(BaseCalculator):
     def addition(self, number1, number2):
-        return number1 + number2
+        result = number1 + number2
+        return result
     def subtraction(self, number1, number2):
-        return number1 - number2
+        result = number1 - number2
+        return result
     def multiplication(self, number1, number2):
-        return number1 * number2
+        result = number1 * number2
+        return result
     def division(self, number1, number2):
         try:
-            return number1 / number2
+            result = number1 / number2
+            return result
         except ZeroDivisionError:
             print("Error: Can't divide by zero")
 
@@ -59,9 +58,22 @@ class CalculatorInterface:
                 print("Invalid input. Please Enter only one of the following values (1-4):")
                 continue
 
-            number1, number2 = self.operations.calculate()
-            if number1 is None or number2 is None:
+            # number1, number2 = self.operations.calculate()
+            # if number1 is None or number2 is None:
+            #     continue
+            # result = None
+
+            try:
+                if self.operations.value is None:
+                    number1 = int(input("Enter the first number: "))
+                else:
+                    number1 = int(self.operations.value)
+
+                number2 = int(input("Enter the second number: "))
+            except ValueError:
+                print("Invalid input. Please Enter only one of the following values (1-4):")
                 continue
+
             result = None
 #functions
             if choice == "1":
