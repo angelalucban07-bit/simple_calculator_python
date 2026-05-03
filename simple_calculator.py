@@ -1,6 +1,4 @@
-#will experiment on functions a bit i want the calculator to store values and i think its still not proper oop coded.
-#code isnt running for now, made first parent class a comment for awhile. will fix this after some time.
-#lost internet connection for days now, need resources for basis.
+#trying new functions for storing the value so will have to do a lot more revisions
 
 # class BaseCalculator:
 #     def get_numbers(self):
@@ -15,19 +13,20 @@
 class BaseCalculator:
     def __init__(self):
         self.value = 0
+        self.memory = []
 
-    def calculate(self, operation_obj, new_value):
-        self.value = operation_obj(new_value) #this uses last result
-        return self.value
+    def store_value(self, result, operation):
+        self.value = result #this uses last result
+        self.history.append(operation)
 
-    def run(self):
-        while True:
-            try:
-                new_value = int(input("Enter the new value: "))
-                result = self.MathOperation.calculate(MathOperation, new_value)
-                print(f"Result: {result}")
-            except ValueError:
-                print("Invalid input")
+    def show_history(self):
+        if not self.history():
+            print("No history saved yet.")
+        else:
+            print("\n==History==")
+            for item in self.history:
+                print(item)
+
 class MathOperation(BaseCalculator):
     def addition(self, number1, number2):
         return number1 + number2
@@ -44,7 +43,7 @@ class MathOperation(BaseCalculator):
 #another class for the main loop to display the menu
 class CalculatorInterface:
     def __init__(self):
-        self.operations = MathOperations()
+        self.operations = MathOperation()
 
     def run(self):
         while True:
