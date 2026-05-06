@@ -55,6 +55,7 @@ class CalculatorInterface:
             print("2. Subtraction")
             print("3. Multiplication")
             print("4. Division")
+            print("5. CLEAR memory")
 
             choice = input("Enter your choice: ")
 
