@@ -1,18 +1,4 @@
-#trying new functions for storing the value so will have to do a lot more revisions. did not include history
-#so deleted the def history because it was unnecessary
-from python_practice_programs.isupper_alternative import result
 
-
-# class BaseCalculator:
-#     def get_numbers(self):
-#         while True:
-#             try:
-#                 number1 = int(input("Enter a number: "))
-#                 number2 = int(input("Enter another number: "))
-#                 return number1, number2
-#             except ValueError:
-#                 print("Invalid input. Please Enter numbers only.")
-#child class
 class BaseCalculator:
     def __init__(self):
         self.value = None
