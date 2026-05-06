@@ -18,14 +18,16 @@ class BaseCalculator:
         self.value = None
         self.memory = []
 
-    def store_value(self, result, operation):
+    def store_value(self, result):
         self.value = result #this uses last result
-        self.history.append(operation)
+
 
 class MathOperation(BaseCalculator):
     def addition(self, number1, number2):
         result = number1 + number2
+        self.store_value(result)
         return result
+
     def subtraction(self, number1, number2):
         result = number1 - number2
         return result
