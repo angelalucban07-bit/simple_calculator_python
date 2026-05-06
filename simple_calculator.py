@@ -21,7 +21,6 @@ class BaseCalculator:
     def store_value(self, result):
         self.value = result #this uses last result
 
-
 class MathOperation(BaseCalculator):
     def addition(self, number1, number2):
         result = number1 + number2
@@ -30,13 +29,16 @@ class MathOperation(BaseCalculator):
 
     def subtraction(self, number1, number2):
         result = number1 - number2
+        self.store_value(result)
         return result
     def multiplication(self, number1, number2):
         result = number1 * number2
+        self.store_value(result)
         return result
     def division(self, number1, number2):
         try:
             result = number1 / number2
+            self.store_value(result)
             return result
         except ZeroDivisionError:
             print("Error: Can't divide by zero")
