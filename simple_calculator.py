@@ -45,7 +45,7 @@ class CalculatorInterface:
 
             choice = input("Enter your choice: ")
 
-            if choice not in ["1", "2", "3", "4"]:
+            if choice not in ["1", "2", "3", "4", "5"]:
                 print("Invalid input. Please Enter only one of the following values (1-4):")
                 continue
 
@@ -53,6 +53,10 @@ class CalculatorInterface:
             # if number1 is None or number2 is None:
             #     continue
             # result = None
+            if choice == "5":
+                self.operations.value = None
+                print("CLEAR memory")
+                continue
 
             try:
                 if self.operations.value is None:
@@ -78,6 +82,7 @@ class CalculatorInterface:
 
             if result is not None:
                 print("The result is:", result)
+                print("Stored value: ", self.operations.value)
 
             again = input("\nDo you want to continue? (y/n): ")
             if again == "n":
