@@ -28,6 +28,7 @@ class MathOperation(BaseCalculator):
             return result
         except ZeroDivisionError:
             print("Error: Can't divide by zero")
+            return self.value
 
 #another class for the main loop to display the menu
 class CalculatorInterface:
@@ -35,7 +36,7 @@ class CalculatorInterface:
         self.operations = MathOperation()
 
     def display_result(self):
-        print("""
+        print(f"""
 ╔══════════════════════════════╗
 ║         🧮 CALCULATOR        
 ╠══════════════════════════════╣
@@ -46,11 +47,11 @@ class CalculatorInterface:
 ║  5. 🗑️  Clear Memory        
 ╠══════════════════════════════╣
 ╠══════════════════════════════╣
-║  Stored: {}""".format(self.operations.value if self.operations.value is not None else "None"))
-        print("╚══════════════════════════════╝")
+║  Stored: {self.operations.value if self.operations.value is not None else "None"}
+╚══════════════════════════════╝
+""")
 
     def run(self):
-        global result
         while True:
             self.display_result()
             choice = input("Choose an operation (1-5): ")
@@ -71,11 +72,11 @@ class CalculatorInterface:
                     number1 = float(self.operations.value)
 
                 number2 = float(input("Enter the second number: "))
+
             except ValueError:
                 print("Invalid input. Please Enter only one of the following values (1-5):")
                 continue
 
-            #functions
             if choice == "1":
                 result = self.operations.addition(number1, number2)
             elif choice == "2":
