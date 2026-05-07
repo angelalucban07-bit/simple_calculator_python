@@ -32,6 +32,8 @@ class MathOperation(BaseCalculator):
 class CalculatorInterface:
     def __init__(self):
         self.operations = MathOperation()
+
+    def display_result(self):
         print("""
 ╔══════════════════════════════╗
 ║         🧮 CALCULATOR        
@@ -45,13 +47,7 @@ class CalculatorInterface:
         """)
     def run(self):
         while True:
-            print("\n=== Calculator ===")
-            print("1. Addition")
-            print("2. Subtraction")
-            print("3. Multiplication")
-            print("4. Division")
-            print("5. CLEAR memory")
-
+            self.display_result()
             choice = input("Enter your choice: ")
 
             if choice not in ["1", "2", "3", "4", "5"]:
