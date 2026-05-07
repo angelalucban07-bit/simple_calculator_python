@@ -16,10 +16,12 @@ class MathOperation(BaseCalculator):
         result = number1 - number2
         self.store_value(result)
         return result
+
     def multiplication(self, number1, number2):
         result = number1 * number2
         self.store_value(result)
         return result
+
     def division(self, number1, number2):
         try:
             result = number1 / number2
@@ -61,8 +63,8 @@ class CalculatorInterface:
                 self.operations.value = None
                 print("CLEAR memory")
                 continue
-#if theres no previous result, directly asks for first input
-            try:
+
+            try: #if theres no previous result, directly asks for first input
                 if self.operations.value is None:
                     number1 = float(input("Enter the first number: "))
                 else:
@@ -73,16 +75,18 @@ class CalculatorInterface:
                 print("Invalid input. Please Enter only one of the following values (1-4):")
                 continue
 
-#functions
+            #functions
             if choice == "1":
-                result = (self.operations.addition(number1, number2))
+                result = self.operations.addition(number1, number2)
             elif choice == "2":
-                result = (self.operations.subtraction(number1, number2))
+                result = self.operations.subtraction(number1, number2)
             elif choice == "3":
-                result = (self.operations.multiplication(number1, number2))
+                result = self.operations.multiplication(number1, number2)
             elif choice == "4":
-                result = (self.operations.division(number1, number2))
+                result = self.operations.division(number1, number2)
+
             print(f"Result: {result}")
+            
             again = input("\nDo you want to continue? (y/n): ")
             if again == "n":
                 print("Thank you for using the calculator. Goodbye! xoxo")
