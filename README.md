@@ -24,7 +24,7 @@ A command-line calculator application written in Python that performs basic arit
 ## Installation
 1. Clone or download the project
 2. Navigate to the project directory:
-   ```cd simple_calculator```
+   ```cd simple_calculator_python```
 
 ### Windows
 ```bash
@@ -102,7 +102,7 @@ The calculator prevents:
 ## Project Structure
 
 ```text
-simple_calculator/
+simple_calculator_python/
 │── simple_calculator.py
 └── README.md
 ```
