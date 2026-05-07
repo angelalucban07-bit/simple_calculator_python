@@ -55,11 +55,11 @@ class CalculatorInterface:
 #if theres no previous result, directly asks for first input
             try:
                 if self.operations.value is None:
-                    number1 = int(input("Enter the first number: "))
+                    number1 = float(input("Enter the first number: "))
                 else:
-                    number1 = int(self.operations.value)
+                    number1 = float(self.operations.value)
 
-                number2 = int(input("Enter the second number: "))
+                number2 = float(input("Enter the second number: "))
             except ValueError:
                 print("Invalid input. Please Enter only one of the following values (1-4):")
                 continue
