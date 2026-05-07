@@ -2,7 +2,6 @@
 class BaseCalculator:
     def __init__(self):
         self.value = None
-        self.memory = []
 
     def store_value(self, result):
         self.value = result #this uses last result
@@ -49,15 +48,11 @@ class CalculatorInterface:
                 print("Invalid input. Please Enter only one of the following values (1-4):")
                 continue
 
-            # number1, number2 = self.operations.calculate()
-            # if number1 is None or number2 is None:
-            #     continue
-            # result = None
             if choice == "5":
                 self.operations.value = None
                 print("CLEAR memory")
                 continue
-
+#if theres no previous result, directly asks for first input
             try:
                 if self.operations.value is None:
                     number1 = int(input("Enter the first number: "))
