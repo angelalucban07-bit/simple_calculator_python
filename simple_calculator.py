@@ -1,4 +1,3 @@
-
 class BaseCalculator:
     def __init__(self):
         self.value = None
@@ -51,12 +50,13 @@ class CalculatorInterface:
         print("╚══════════════════════════════╝")
 
     def run(self):
+        global result
         while True:
             self.display_result()
             choice = input("Choose an operation (1-5): ")
 
             if choice not in ["1", "2", "3", "4", "5"]:
-                print("Invalid input. Please Enter only one of the following values (1-4):")
+                print("Invalid input. Please Enter only one of the following values (1-5):")
                 continue
 
             if choice == "5":
@@ -64,7 +64,7 @@ class CalculatorInterface:
                 print("CLEAR memory")
                 continue
 
-            try: #if theres no previous result, directly asks for first input
+            try: #if there is no previous result, directly asks for first input
                 if self.operations.value is None:
                     number1 = float(input("Enter the first number: "))
                 else:
@@ -72,7 +72,7 @@ class CalculatorInterface:
 
                 number2 = float(input("Enter the second number: "))
             except ValueError:
-                print("Invalid input. Please Enter only one of the following values (1-4):")
+                print("Invalid input. Please Enter only one of the following values (1-5):")
                 continue
 
             #functions
@@ -86,7 +86,7 @@ class CalculatorInterface:
                 result = self.operations.division(number1, number2)
 
             print(f"Result: {result}")
-            
+
             again = input("\nDo you want to continue? (y/n): ")
             if again == "n":
                 print("Thank you for using the calculator. Goodbye! xoxo")
