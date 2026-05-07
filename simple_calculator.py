@@ -73,21 +73,16 @@ class CalculatorInterface:
                 print("Invalid input. Please Enter only one of the following values (1-4):")
                 continue
 
-            result = None
 #functions
             if choice == "1":
-                print(self.operations.addition(number1, number2))
+                result = (self.operations.addition(number1, number2))
             elif choice == "2":
-                print(self.operations.subtraction(number1, number2))
+                result = (self.operations.subtraction(number1, number2))
             elif choice == "3":
-                print(self.operations.multiplication(number1, number2))
+                result = (self.operations.multiplication(number1, number2))
             elif choice == "4":
-                print(self.operations.division(number1, number2))
-
-            if result is not None:
-                print("The result is:", result)
-                print("Stored value: ", self.operations.value)
-
+                result = (self.operations.division(number1, number2))
+            print(f"Result: {result}")
             again = input("\nDo you want to continue? (y/n): ")
             if again == "n":
                 print("Thank you for using the calculator. Goodbye! xoxo")
