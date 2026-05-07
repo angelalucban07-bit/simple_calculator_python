@@ -44,11 +44,14 @@ class CalculatorInterface:
 ║  4. ➗ Division              
 ║  5. 🗑️  Clear Memory        
 ╠══════════════════════════════╣
-        """)
+╠══════════════════════════════╣
+║  Stored: {}""".format(self.operations.value if self.operations.value is not None else "None"))
+        print("╚══════════════════════════════╝")
+
     def run(self):
         while True:
             self.display_result()
-            choice = input("Enter your choice: ")
+            choice = input("Choose an operation (1-5): ")
 
             if choice not in ["1", "2", "3", "4", "5"]:
                 print("Invalid input. Please Enter only one of the following values (1-4):")
@@ -93,4 +96,3 @@ class CalculatorInterface:
 if __name__ == "__main__":
     calculator = CalculatorInterface()
     calculator.run()
-#will learn better methods for better main display
