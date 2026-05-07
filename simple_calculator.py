@@ -32,7 +32,17 @@ class MathOperation(BaseCalculator):
 class CalculatorInterface:
     def __init__(self):
         self.operations = MathOperation()
-
+        print("""
+╔══════════════════════════════╗
+║         🧮 CALCULATOR        
+╠══════════════════════════════╣
+║  1. ➕ Addition              
+║  2. ➖ Subtraction           
+║  3. ✖️ Multiplication       
+║  4. ➗ Division              
+║  5. 🗑️  Clear Memory        
+╠══════════════════════════════╣
+        """)
     def run(self):
         while True:
             print("\n=== Calculator ===")
