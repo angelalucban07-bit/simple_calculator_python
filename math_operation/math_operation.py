@@ -1,4 +1,4 @@
-from simple_calculator_python.simple_calculator import BaseCalculator
+from simple_calculator_python.math_operation.simple_calculator import BaseCalculator
 
 class MathOperation(BaseCalculator):
     def addition(self, number1, number2):
