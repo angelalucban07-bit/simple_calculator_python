@@ -103,6 +103,9 @@ The calculator prevents:
 
 ```text
 simple_calculator_python/
-│── simple_calculator.py
+│   ├── interface.py
+│   ├── main.py
+│   ├── math_operation.py
+│   └── simple_calculator.py
 └── README.md
 ```
